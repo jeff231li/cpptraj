@@ -1762,14 +1762,14 @@ void Action_GIST::Print() {
       gistOutputVersion = "v2";
     // Do the header
     datafile_->Printf("GIST Output %s "
-                      "spacing=%.4f center=%.6f,%.6f,%.6f dims=%i,%i,%i \n"
+                      "temperature=%.2f spacing=%.4f center=%.6f,%.6f,%.6f dims=%i,%i,%i \n"
                       "voxel xcoord ycoord zcoord population g_O g_H"
                       " dTStrans-dens(kcal/mol/A^3) dTStrans-norm(kcal/mol)"
                       " dTSorient-dens(kcal/mol/A^3) dTSorient-norm(kcal/mol)"
                       " dTSsix-dens(kcal/mol/A^3) dTSsix-norm(kcal/mol)"
                       " Esw-dens(kcal/mol/A^3) Esw-norm(kcal/mol)"
                       " Eww-dens(kcal/mol/A^3) Eww-norm-unref(kcal/mol)",
-                      gistOutputVersion, gridspacing_,
+                      temperature_, gistOutputVersion, gridspacing_,
                       gridcntr_[0], gridcntr_[1], gridcntr_[2],
                       (int)griddim_[0], (int)griddim_[1], (int)griddim_[2]);
     if (usePme_)
