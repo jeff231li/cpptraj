@@ -1741,6 +1741,7 @@ void Action_GIST::Print() {
           " " + fltFmt_.Fmt();  // EWW_norm
     if (usePme_) {
       fmtstr +=
+          " " + fltFmt_.Fmt() + // PME_Esw_dens
           " " + fltFmt_.Fmt() + // PME_dens
         + " " + fltFmt_.Fmt();  // PME_norm
     }
@@ -1772,7 +1773,7 @@ void Action_GIST::Print() {
                       gridcntr_[0], gridcntr_[1], gridcntr_[2],
                       (int)griddim_[0], (int)griddim_[1], (int)griddim_[2]);
     if (usePme_)
-      datafile_->Printf(" PME-dens(kcal/mol/A^3) PME-norm(kcal/mol)");
+      datafile_->Printf(" PME-Esw-dens(kcal/mol/A^3) PME-dens(kcal/mol/A^3) PME-norm(kcal/mol)");
     datafile_->Printf(" Dipole_x-dens(D/A^3) Dipole_y-dens(D/A^3) Dipole_z-dens(D/A^3)"
                       " Dipole-dens(D/A^3) neighbor-dens(1/A^3) neighbor-norm order-norm\n");
     // Loop over voxels
@@ -1792,6 +1793,7 @@ void Action_GIST::Print() {
                           dTSsix[gr_pt], dTSsix_norm[gr_pt],
                           Esw_dens[gr_pt], Esw_norm[gr_pt],
                           Eww_dens[gr_pt], Eww_norm[gr_pt],
+						  U_PME_dens[gr_pt],
                           PME_dens[gr_pt], PME_norm[gr_pt],
                           dipolex[gr_pt], dipoley[gr_pt], dipolez[gr_pt],
                           pol[gr_pt], neighbor_dens[gr_pt], neighbor_norm[gr_pt], qtet[gr_pt]);
